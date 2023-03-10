@@ -1,3 +1,4 @@
+from plyer import notification # pip install plyer
 from tkinter import *
 import datetime
 import time
@@ -29,7 +30,9 @@ def alarm():
         print(CLEAR_AND_RETURN,current_time,set_alarm_time)
 
         if current_time == set_alarm_time:
-            print("Wake Up")
+            title = 'Alarm'
+            message= "It's Time to Wake Up!"
+            notification.notify(title = title, message= message, app_icon = None, timeout= 10, toast=False)
             winsound.PlaySound("alarmsound.wav",winsound.SND_FILENAME)
             break
 
